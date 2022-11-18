@@ -9,26 +9,28 @@ class  RouterGenerator {
 
     switch ( settings.name  ){
       
-      case '/staful'  : return MaterialPageRoute(
-        settings:  RouteSettings( name: settings.name ),
-        builder: (_) =>   CounterPage( ) 
-      );
-      case '/provider': return MaterialPageRoute(
-        settings: RouteSettings( name : settings.name ),
-        builder: (_) => CounterProviderPage()
-      );
+      case '/staful'  : return _fadeRoute(  CounterPage() , settings.name )
+      case '/provider': return _fadeRoute( CounterProviderPage() , settings.name );
       
       default: 
-        return MaterialPageRoute(
-          settings: RouteSettings( name: "/404" ),
-          builder: (_) => Page404()
-        );
+        return _fadeRoute( Page404(), "404");
 
     }
 
   }
 
 
+   static  PageRoute   _fadeRoute( Widget child , String? routeName ){
+     return PageRouteBuilder(
+       settings:  RouteSettings( name:  routeName ),
+       pageBuilder: (a,b,c)  => child,
+       transitionsBuilder: ( c, animation,a ,b ) => 
+       FadeTransition(
+         opacity:  animation,
+         child:  child ,
+       )
+     );
+   }
 
 
 }
