@@ -12,15 +12,18 @@ class MenuCustom extends StatelessWidget{
       width: double.infinity,
       color: Colors.blue,
       height: 100,
-      child: Row(children: [ 
-        SizedBox( height: 10, ),
-        Button( text:"contador stafu" , onPressed: ()  {
-          print("hola--------__>");
-          Navigator.pushNamed(context, '/staful');
-        }, color: Colors.white,),
-        SizedBox( width: 10 ),
-        Button( text:" contador provider" , onPressed: () => Navigator.pushNamed(context, '/provider') , color: Colors.white,),
-        ]),
+      child: FittedBox(
+      child:
+        Row(children: [ 
+          SizedBox( height: 10, ),
+          Button( text:"contador stafu" , onPressed: ()  { Navigator.pushNamed(context, '/staful'); }, color: Colors.white,),
+          SizedBox( width: 10 ),
+          Button( text:" contador provider" , onPressed: () => Navigator.pushNamed(context, '/provider') , color: Colors.white,),
+          SizedBox( width: 10 ),
+          Button( text:" otra " , onPressed: () => Navigator.pushNamed( context, '/otra' ) , color: Colors.white,),
+          
+          ]),
+      )
 
     );
   }

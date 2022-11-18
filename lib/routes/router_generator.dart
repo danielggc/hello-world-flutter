@@ -9,13 +9,26 @@ class  RouterGenerator {
 
     switch ( settings.name  ){
       
-      case '/staful'  : return MaterialPageRoute(builder: (_) =>   CounterPage( ) );
-      case '/provider': return MaterialPageRoute(builder: (_) => CounterProviderPage() );
+      case '/staful'  : return MaterialPageRoute(
+        settings:  RouteSettings( name: settings.name ),
+        builder: (_) =>   CounterPage( ) 
+      );
+      case '/provider': return MaterialPageRoute(
+        settings: RouteSettings( name : settings.name ),
+        builder: (_) => CounterProviderPage()
+      );
       
       default: 
-        return MaterialPageRoute(builder: (_) => Page404() );
+        return MaterialPageRoute(
+          settings: RouteSettings( name: "/404" ),
+          builder: (_) => Page404()
+        );
 
     }
 
   }
+
+
+
+
 }
