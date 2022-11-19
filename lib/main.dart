@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:hello_world/provider/counter_provider.dart';
 import 'package:hello_world/routes/router_generator.dart';
 import 'package:hello_world/ui/pages/counter_page.dart';
 import 'package:hello_world/ui/pages/counter_provider.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider( create: (_ ) => CounterProvider()  )
+      ],
+      child : const MyApp(),
+    )
+    );
 }
 
 class MyApp extends StatelessWidget {

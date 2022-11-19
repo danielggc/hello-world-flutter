@@ -14,6 +14,7 @@ class _CounterPage extends State<CounterPage>{
   int conuter = 0;
   @override
   Widget build(BuildContext context) {
+    print("hola como estas  repintando ");
     // TODO: implement build
     return Scaffold(
       

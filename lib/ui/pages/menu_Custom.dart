@@ -6,6 +6,7 @@ class MenuCustom extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+    print("hola menu aplication ");
     
     return Container(
       padding: EdgeInsets.symmetric( horizontal: 10 , vertical: 10),

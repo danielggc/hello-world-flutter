@@ -2,19 +2,21 @@ import 'dart:ffi';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hello_world/provider/counter_provider.dart';
 import 'package:hello_world/ui/pages/atoms/button.dart';
 import 'package:hello_world/ui/pages/menu_Custom.dart';
+import 'package:provider/provider.dart';
 
-class CounterProviderPage extends StatefulWidget{
-  _CounterProviderPage createState() => _CounterProviderPage();
-}
 
-class _CounterProviderPage extends State<CounterProviderPage>{
+class CounterProviderPage extends StatelessWidget{
+
 
   int conuter = 0;
   @override
   Widget build(BuildContext context) {
+    print("hola como estas  repintando ");
     // TODO: implement build
+    final counterProvider = Provider.of<CounterProvider>(context);
     return Scaffold(
       
       body:  Column(
@@ -29,7 +31,7 @@ class _CounterProviderPage extends State<CounterProviderPage>{
           
              child : Padding(
                padding: const EdgeInsets.all(5.0),
-               child: Text("Contador : ${conuter}"),
+               child: Text("Contador : ${counterProvider.counter}"),
              )
             
 
@@ -38,8 +40,8 @@ class _CounterProviderPage extends State<CounterProviderPage>{
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Button(onPressed: ()=>{},text: "suma",),
-              Button(onPressed: ()=>{},text: "resta",)
+              Button(onPressed: ()=> counterProvider.increment(),text: "suma",),
+              Button(onPressed: ()=> counterProvider.decrement(),text: "resta",)
           ],),
           Spacer(),
         ]
