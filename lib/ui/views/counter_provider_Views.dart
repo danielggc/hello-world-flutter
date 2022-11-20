@@ -1,42 +1,26 @@
-import 'dart:ffi';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hello_world/provider/counter_provider.dart';
 import 'package:hello_world/ui/atoms/button.dart';
-import 'package:hello_world/ui/moleculas/menu_Custom.dart';
+import 'package:hello_world/ui/atoms/pintar_contador.dart';
 import 'package:provider/provider.dart';
 
 
-class CounterProviderPage extends StatelessWidget{
+class CounterProviderViews extends StatelessWidget{
 
 
   int conuter = 0;
   @override
   Widget build(BuildContext context) {
-    print("hola como estas  repintando ");
+    print(" repintando  ------>  provider ");
     // TODO: implement build
     final counterProvider = Provider.of<CounterProvider>(context);
     return Scaffold(
       
       body:  Column(
-        children: [
-          MenuCustom(),
-        
+        children: [        
           Text("provider",style:  TextStyle(fontSize:  20 ),),
           Spacer(),
-        
-          FittedBox(
-            fit :BoxFit.contain, 
-          
-             child : Padding(
-               padding: const EdgeInsets.all(5.0),
-               child: Text("Contador : ${counterProvider.counter}"),
-             )
-            
-
-          ),
-
+          PintarContador(),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

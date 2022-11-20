@@ -1,15 +1,11 @@
-import 'dart:ffi';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hello_world/ui/pages/atoms/button.dart';
-import 'package:hello_world/ui/pages/menu_Custom.dart';
+import 'package:hello_world/ui/atoms/button.dart';
 
-class CounterPage extends StatefulWidget{
-  _CounterPage createState() => _CounterPage();
+class CounterWiew extends StatefulWidget{
+  _CounterWiew createState() => _CounterWiew();
 }
 
-class _CounterPage extends State<CounterPage>{
+class _CounterWiew extends State<CounterWiew>{
 
   int conuter = 0;
   @override
@@ -22,7 +18,6 @@ class _CounterPage extends State<CounterPage>{
         children: [
           SizedBox(height: 20,),
 
-          MenuCustom(),
         
           Spacer(),
         
