@@ -12,7 +12,7 @@ class MenuCustom extends StatelessWidget{
     // TODO: implement build
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        return ( constraints.maxWidth > 10000 )  
+        return ( constraints.maxWidth > 300 )  
         ?_MenuCustomTable()
 
         :_MenuCustomMovil(alto: 200,);
@@ -33,16 +33,19 @@ class _MenuCustomTable extends StatelessWidget{
       width: double.infinity,
       color: Colors.blue,
       height: 100,
-      child:
-        Row(children: [ 
-          SizedBox( height: 10, ),
-          Button( text:"contador stafu" , onPressed: ()  { locator<NavigationService>().navitationTo( '/staful' ); }, color: Colors.white,),
-          SizedBox( height: 10 ),
-          Button( text:" contador provider" , onPressed: () => locator<NavigationService>().navitationTo( '/provider' ) , color: Colors.white,),
-          SizedBox( height: 10 ),
-          Button( text:" otra " , onPressed: () => locator<NavigationService>().navitationTo('/otra' ) , color: Colors.white,),
-          
-          ]),
+      
+      child:FittedBox(
+        child:
+          Row(children: [ 
+            SizedBox( width: 10, ),
+            Button( text:"contador stafu" , onPressed: ()  { locator<NavigationService>().navitationTo( '/staful' ); }, color: Colors.white,),
+            SizedBox( width: 10 ),
+            Button( text:" contador provider" , onPressed: () => locator<NavigationService>().navitationTo( '/provider' ) , color: Colors.white,),
+            SizedBox( width: 10 ),
+            Button( text:" otra " , onPressed: () => locator<NavigationService>().navitationTo('/otra' ) , color: Colors.white,),
+            
+            ]),
+      )
       
 
     );

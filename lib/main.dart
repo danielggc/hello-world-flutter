@@ -1,17 +1,20 @@
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:hello_world/locator.dart';
 import 'package:hello_world/provider/counter_provider.dart';
 import 'package:hello_world/routes/router_generator.dart';
+import 'package:hello_world/routes/fluro_router.dart';
 import 'package:hello_world/services/navigation_service.dart';
 import 'package:hello_world/ui/layout/main_layout_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
   setupLocator();
+  Flurorouter.configureRoutes();
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider( create: (_ ) => CounterProvider()  )
+        ChangeNotifierProvider( create: (_ ) => CounterProvider()  )        
       ],
       child : const MyApp(),
     )
@@ -30,9 +33,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/staful',
+      onGenerateRoute: Flurorouter.router.generator,
+      initialRoute: '/',
       navigatorKey:  locator<NavigationService>().navigatorKey,
-      onGenerateRoute:  RouterGenerator.generateRoute,
       builder: (_, child ){
         return MainLatoutPage(child:  child ?? CircularProgressIndicator() );
       },
