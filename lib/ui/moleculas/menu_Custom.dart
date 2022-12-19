@@ -42,6 +42,12 @@ class _MenuCustomTable extends StatelessWidget{
             SizedBox( width: 10 ),
             Button( text:" contador provider" , onPressed: () => locator<NavigationService>().navitationTo( '/provider' ) , color: Colors.white,),
             SizedBox( width: 10 ),
+            Button(
+               text:" provider params " , 
+               onPressed: () => locator<NavigationService>().navitationTo('/providerParams/50' ) ,
+               color: Colors.white,
+              ),
+            SizedBox( width: 10 ),
             Button( text:" otra " , onPressed: () => locator<NavigationService>().navitationTo('/otra' ) , color: Colors.white,),
             
             ]),

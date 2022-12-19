@@ -6,6 +6,7 @@ import 'package:hello_world/ui/pages/counter_page.dart';
 import 'package:hello_world/ui/pages/counter_provider.dart';
 import 'package:hello_world/ui/views/Page404.dart';
 import 'package:hello_world/ui/views/counter_provider_Views.dart';
+import 'package:hello_world/ui/views/counter_provider_params_Views.dart';
 
 class Flurorouter {
 
@@ -28,15 +29,23 @@ class Flurorouter {
       handler: _providerCounter,
       transitionType:  TransitionType.cupertino
       );
+   router.define( 
+      '/providerParams/:base',
+      handler: _counterProviderParamsHandler,
+      transitionType:  TransitionType.cupertino
+      );
 
       router.notFoundHandler = _view404;
-  }
 
+  }
 
 
   static final _counterHandler = Handler(
     handlerFunc: ( context , params  ) => CounterWiew()
-    
+  );
+
+  static final _counterProviderParamsHandler = Handler(
+    handlerFunc: ( context , params  ) => CounterProviderParamsViews( params['base'] ? [0] ?? '5' )
   );
 
 
@@ -44,5 +53,8 @@ class Flurorouter {
     handlerFunc: ( context , params ) => CounterProviderViews()
   );
 
-  static final _view404 = Handler(handlerFunc: (_,__) => Views404() );
+  static final _view404 = Handler(
+    handlerFunc: (_,__) => Views404() 
+  );
+
 }
